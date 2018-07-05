@@ -15,7 +15,7 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-    - dist/*/**
+    - dist/**/*
     - server.js
     - node_modules
     - package.json
