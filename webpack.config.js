@@ -1,12 +1,22 @@
 const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CleanWebpackPlugin = require("clean-webpack-plugin")
+
+
 const PATHS = {
-  app:  path.join(__dirname, "src"),
-  dist: path.join(__dirname, "dist")
-}
+    app: path.join(__dirname, 'src'),
+    dist: path.join(__dirname, 'dist')
+};
+
 module.exports = {
   devtool: "source-map",
   entry: {
-    client: PATHS.app
+    app: PATHS.app
   },
   output: {
     path: PATHS.dist,
@@ -16,11 +26,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: ["babel-loader"]
       },
-      /*
       {
         test: /\.css$/,
         exclude: /node_modules/,
@@ -41,7 +50,13 @@ module.exports = {
           ]
         })
       },
-
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: ["css-loader", "sass-loader"]
+        })
+      },
       {
         test: /\.(png|jpe?g|gif|svg|ttf|eot|woff|woff2)$/,
         use: [
@@ -85,7 +100,33 @@ module.exports = {
           }
         ]
       }
-      */
     ]
-  }
+  },
+  plugins: [
+    new CleanWebpackPlugin([PATHS.dist]),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, "src/public", "index.html"),
+      //favicon: "src/public/images/fav.png"
+    }),
+
+    new ExtractTextPlugin({
+      filename: "[name].css",
+      disable: false,
+      allChunks: true
+    }),
+    //new UglifyJSPlugin(),
+    new webpack.optimize.AggressiveMergingPlugin(), //Merge chunks
+
+    new CompressionPlugin({
+      asset: "[path].gz[query]",
+      algorithm: "gzip",
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8
+    }),
+
+    new CopyWebpackPlugin([
+      { from: PATHS.app + "/public/static", to: PATHS.dist } // Copy everything from src/public/static to dist folder
+    ])
+  ]
 }
