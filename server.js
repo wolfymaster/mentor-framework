@@ -74,9 +74,9 @@ app.use(function(req, res) {
 // Start Server
 app.listen(PORT, function() {
     console.log("Started listening on port", PORT);
-    var path = path.join(__dirname);
+    var mypath = path.join(__dirname);
  
-    fs.readdir(path, function(err, items) {
+    fs.readdir(mypath, function(err, items) {
         console.log(items);
      
         for (var i=0; i<items.length; i++) {
