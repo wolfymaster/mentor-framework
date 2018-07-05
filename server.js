@@ -6,7 +6,7 @@ const fs = require('fs');
 // Start Express
 const app = express();
 const staging = express();
-const PORT = 8080 || process.env.port;
+const PORT = process.env.PORT || 8080;
 
 /* ************************************
             STAGING SETTINGS
