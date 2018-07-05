@@ -1,9 +1,5 @@
 version: 0.2
 
-env:
-    variables:
-      NODE_ENV: "production"
-      
 phases:
   install:
     commands:
@@ -22,3 +18,4 @@ artifacts:
     - dist/*/**
     - server.js
     - node_modules
+    - package.json
