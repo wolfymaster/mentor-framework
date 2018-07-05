@@ -17,5 +17,5 @@ artifacts:
   files:
     - dist/*/**
     - server.js
-    - node_modules/body-parser/*/**
-    - node_modules/express/*/**
+    - node_modules/body-parser/**/*
+    - node_modules/express/**/*
