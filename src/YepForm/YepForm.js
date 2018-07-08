@@ -135,10 +135,15 @@ export default class YepForm extends Component {
   render() {
     return (
           <form>
-          <button onClick={this.onRetrieveData}>Open LinkedIn</button>
           
-          <fieldset>
-          <label>
+          { /*
+          <button onClick={this.onRetrieveData}>Open LinkedIn</button>
+          */ }
+        
+          
+          { /*
+          <fieldset style={{ display:'none' }}>
+            <label>
                 <input
                 name="firstName"
                 placeholder="First Name"
@@ -158,36 +163,27 @@ export default class YepForm extends Component {
               </label>
             </fieldset>
             
-              <fieldset>
-              <label>
-                E-mail: <strong><abbr title="required">*</abbr></strong>
-                <input type="email" name="email" />
-              </label>
-            </fieldset>
-           {/* <fieldset>
-              <label>
-                Age: <abbr title="required">*</abbr>
-                <input type="number" name="personAge" placeholder="18" /> 
-              </label>
-              <label>
-                Gender: <br />
-                <input type="radio" value="male" name="radioMale" /> Male<br />
-                <input type="radio" value="female" name="radioFemale" /> Female<br />
-                <input type="radio" value="none" name="radioNone" /> N/A<br />
-              </label>
-            </fieldset>
             <fieldset>
               <label>
                 E-mail: <strong><abbr title="required">*</abbr></strong>
                 <input type="email" name="email" />
               </label>
             </fieldset>
+            
+            <fieldset>
+              <label>
+                Age: <abbr title="required">*</abbr>
+                <input type="number" name="personAge" placeholder="" /> 
+              </label>
+            </fieldset>
+
             <fieldset>
               <label>
                 Phone: <strong><abbr title="required">*</abbr></strong>
                 <input id="telNo" name="telNo" type="tel" size="20" placeholder="814-888-8888" />
               </label>
             </fieldset>
+            
             <fieldset>
               <label>
                 College: <strong><abbr title="required">*</abbr></strong>
@@ -198,15 +194,11 @@ export default class YepForm extends Component {
                 <input type="text" name="major" />
               </label>
             </fieldset>
-            <fieldset>
-              <label>
-                How did you find us:
-                <input type="radio" value="social" name="social" /><br />
-                <input type="radio" value="website" name="website" /><br />
-                <input type="radio" value="other" name="findOther" />Other<br />
-              </label>
-            </fieldset>*/}
-                 <button onClick={e => this.onSubmit(e)}>Submit</button>
+
+            
+            <button onClick={e => this.onSubmit(e)}>Submit</button>
+            
+            */ }
             </form>
     );
   }

@@ -3096,3 +3096,29 @@ form#mentor-search input[type="submit"] {
   display:inline;
   padding:10px 20px;
 }
+
+
+#apply-step-1 {
+  height: calc(100% - 1.5rem);
+}
+.apply-steps {
+  text-align:center;
+  display:flex;
+  justify-content: center;
+  margin-left:-5px;
+  height:1.5rem;
+}
+.apply-step {
+  border-radius: 50%;
+  background:#FFF;
+  width:10px;
+  height:10px;
+  margin-left:5px;
+}
+.apply-step.active {
+  background: #888;
+}
+
+#apply-step-2 h2 span {
+  font-size:1.2rem;
+}
