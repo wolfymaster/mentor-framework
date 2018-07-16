@@ -110,7 +110,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin([PATHS.dist]),
+    //new CleanWebpackPlugin([PATHS.dist]),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "src/public", "index.html"),
       //favicon: "src/public/images/fav.png"
@@ -122,7 +122,7 @@ module.exports = {
       allChunks: true
     }),
     // new UglifyJSPlugin(),
-    new webpack.optimize.AggressiveMergingPlugin(), //Merge chunks
+    //new webpack.optimize.AggressiveMergingPlugin(), //Merge chunks
     /*
     new CompressionPlugin({
       asset: "[path].gz[query]",
@@ -135,5 +135,11 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: PATHS.app + "/public/static", to: PATHS.dist } // Copy everything from src/public/static to dist folder
     ])
-  ]
+  ],
+  resolve:{
+    modules: [
+      path.resolve('./src'),
+      path.resolve('./node_modules')
+    ]
+  }
 }
