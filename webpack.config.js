@@ -14,6 +14,7 @@ const PATHS = {
 };
 
 module.exports = {
+  mode: "production",
   devtool: "source-map",
   entry: {
     app: PATHS.app

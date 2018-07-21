@@ -14,6 +14,7 @@ const PATHS = {
 };
 
 module.exports = {
+  mode: "development",
   devtool: "source-map",
   entry: {
     app: PATHS.app
@@ -25,7 +26,7 @@ module.exports = {
   },
   devServer: {
     open: true,
-    compress: true,
+    compress: false,
     historyApiFallback: true,
     contentBase: "dist",
     disableHostCheck: true
