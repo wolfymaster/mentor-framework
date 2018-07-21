@@ -1,23 +1,24 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 
 export const GuestMenu = () => (
 		<nav id="nav-menu">
             <div class="menu-item">
 			    <div class="parent">
-					<a href="/apply">Apply Now</a>
+					<Link to="/apply">Apply Now</Link>
 				</div>
 			</div>
 			<div class="menu-item">
 				<div class="parent">For Mentees</div>
 				<div class="submenu">
 					<div class="submenu-item">
-						<a href="./about-the-YEP-mentor-program.html">About the YEP Mentor Program</a>
+						<Link to="./about-the-YEP-mentor-program">About the YEP Mentor Program</Link>
 					</div>
 					<div class="submenu-item">
-						<a href="./curriculum.html">Curriculum</a>
+						<Link to="./curriculum">Curriculum</Link>
 					</div>
 					<div class="submenu-item">
-						<a href="find-a-mentor.html">Find A Mentor</a>
+						<Link href="find-a-mentor">Find A Mentor</Link>
 					</div>
 				</div>
 			</div>
@@ -37,7 +38,7 @@ export const GuestMenu = () => (
 			</div>
 			<div class="menu-item">
 				<div class="parent">
-					<a href="management.html">Login</a>
+					<Link to="management.html">Login</Link>
 				</div>
 			</div>
 		</nav>

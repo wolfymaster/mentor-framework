@@ -80,7 +80,7 @@ export default class Registration extends Component {
   render() {
     return (
       <div>
-        <div className="button" onClick={this.openModal}>Register Now</div>
+        <div className="button" onClick={this.openModal}>Apply Now</div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}

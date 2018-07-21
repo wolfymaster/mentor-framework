@@ -6,6 +6,7 @@ import Footer from 'Footer';
 
 import Homepage from 'Pages/homepage';
 import SubPage from 'Pages/subpage';
+import FindAMentor from 'Pages/find_a_mentor';
 
 export default class AppContainer extends Component {
     
@@ -17,6 +18,7 @@ export default class AppContainer extends Component {
 
 						<Switch>
 							<Route exact path="/account/:slug" component={SubPage} />
+							<Route exact path="/find-a-mentor" component={FindAMentor} />
 							<Route exact path="/:slug" component={SubPage} />						
 							<Route exact path="/" component={Homepage} />
 						</Switch>
