@@ -12,6 +12,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "auth0-js": "^9.7.2",
+    "auth0-lock": "^11.7.2",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "react": "^16.2.0",

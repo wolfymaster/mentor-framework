@@ -1811,7 +1811,8 @@ ul.icons {
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
-  background-image: url("../../images/banner.jpg");
+  /* background-image: url("../../images/banner.jpg"); */
+  background-image: url("https://www.eriepa.com/uploads/panorama-erie-pa-cropped.JPG");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3121,4 +3122,9 @@ form#mentor-search input[type="submit"] {
 
 #apply-step-2 h2 span {
   font-size:1.2rem;
+}
+
+/* ====== LOGINBOX ====== */
+#loginbox .auth0-lock-header {
+  display:none;
 }

@@ -60,8 +60,9 @@ export default class Registration extends Component {
    
    onRetrieveData = (event) => {
       event.preventDefault();
-      window.open('https://us-central1-young-erie-professionals.cloudfunctions.net/linkedinAuth', '', "width=600,height=600")
-      window.addEventListener("message", this.receiveMessage, false)
+      window.open('https://yeperie.auth0.com/authorize?response_type=token&client_id=y0l9g2y5L6PL4ogoiY2AHC9QpdMCWxCg&connection=linkedin&redirect_uri=https://0adbdbd4026c44d389258e6d70a241e2.vfs.cloud9.us-east-2.amazonaws.com/login&state=mountaindew', '', 'width=600,height=600');
+      //window.open('https://us-central1-young-erie-professionals.cloudfunctions.net/linkedinAuth', '', "width=600,height=600")
+      //window.addEventListener("message", this.receiveMessage, false)
     }
     
     receiveMessage = (event) => {
@@ -80,7 +81,7 @@ export default class Registration extends Component {
   render() {
     return (
       <div>
-        <div className="button" onClick={this.openModal}>Apply Now</div>
+        <div className={this.props.buttonStyle} onClick={this.openModal}>Apply Now</div>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}

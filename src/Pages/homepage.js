@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 import Banner from 'Banner';
-import Highlights from 'Highlights';
+import Highlights from 'Mentor/highlights';
 
 export default class Homepage extends Component {
  render() {

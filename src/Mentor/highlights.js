@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Highlight from 'Highlight';
+import Highlight from 'Mentor/highlight';
 
 export default class Highlights extends Component {
  

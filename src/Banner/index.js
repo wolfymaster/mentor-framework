@@ -9,9 +9,9 @@ export default class Banner extends Component {
     			<div class="inner">
     				<h1>2018 YEP Mentor Program</h1>
     				<p>Seeking college Juniors, Seniors, Post-Grads and recent graduates</p>
-    				<Registration />
+    				<Registration buttonStyle="button" />
     			</div>
-    			<video autoplay loop muted playsinline src="images/banner.mp4"></video>
+    			{ /* <video autoplay loop muted playsinline src="images/banner.mp4"></video> */ }
     		</section>
  }
     
