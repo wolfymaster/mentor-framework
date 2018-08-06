@@ -17,9 +17,9 @@ export default class Highlights extends Component {
     }
  
     render() {
-        return 	<div class="highlights">
+        return 	<div className="highlights">
                 {
-                    this.state.mentors.map(mentor => (<Highlight />) )
+                    this.state.mentors.map( (mentor, i) => (<Highlight key={i} />) )
                 }
                 </div>
     }

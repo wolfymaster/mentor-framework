@@ -1,5 +1,10 @@
+/* global env */
 import React, {Component} from 'react';
 import Modal from 'react-modal';
+
+import {Auth} from 'Auth/auth';
+
+const { AUTH0_CLIENT_ID, AUTH0_DOMAIN, SITE_BASE_URL } = env;
 
 const customStyles = {
   content : {
@@ -37,6 +42,8 @@ export default class Registration extends Component {
     this.closeModal = this.closeModal.bind(this);
     
     this.applyPath = this.setApplyPath.bind(this)
+    
+    this.auth = new Auth();
   }
 
   openModal() {
@@ -60,14 +67,17 @@ export default class Registration extends Component {
    
    onRetrieveData = (event) => {
       event.preventDefault();
-      window.open('https://yeperie.auth0.com/authorize?response_type=token&client_id=y0l9g2y5L6PL4ogoiY2AHC9QpdMCWxCg&connection=linkedin&redirect_uri=https://0adbdbd4026c44d389258e6d70a241e2.vfs.cloud9.us-east-2.amazonaws.com/login&state=mountaindew', '', 'width=600,height=600');
+      window.open('https://'+AUTH0_DOMAIN+'/authorize?response_type=token&client_id='+AUTH0_CLIENT_ID+'&connection=linkedin&redirect_uri='+SITE_BASE_URL+'login&state=mountaindew', '', 'width=600,height=600');
       //window.open('https://us-central1-young-erie-professionals.cloudfunctions.net/linkedinAuth', '', "width=600,height=600")
-      //window.addEventListener("message", this.receiveMessage, false)
+      window.addEventListener("message", this.receiveMessage, false)
     }
     
     receiveMessage = (event) => {
+      /*
       if( event.origin !== "https://us-central1-young-erie-professionals.cloudfunctions.net")
         return;
+      */
+
         
       let responseData = JSON.parse(event.data);
       
@@ -79,6 +89,19 @@ export default class Registration extends Component {
     } 
 
   render() {
+    /*
+    let params = {
+      "client_id": AUTH0_CLIENT_ID,
+      "response_type":"token id_token",
+      "redirect_uri": SITE_BASE_URL+"login",
+      "audience": "https://"+AUTH0_DOMAIN+"/userinfo",
+      "connection": "linkedin",
+      "state": btoa(JSON.stringify({"registration_type" : "mentor"})),
+      "scope": "openid profile email",
+      "nonce": AuthLock.generateNonce()
+    } 
+    */
+    
     return (
       <div>
         <div className={this.props.buttonStyle} onClick={this.openModal}>Apply Now</div>
@@ -109,9 +132,9 @@ export default class Registration extends Component {
           <div id="apply-step-2" style={{ display: (this.state.step === 2) ? 'block' : 'none', justifyContent: 'space-between' }}>
             <h2>Welcome! <span>Lets get you enrolled!</span></h2>
             <div>
-              <button onClick={this.onRetrieveData}>Apply with LinkedIn</button>
+              <button onClick={ () => this.auth.login("mentee") }>Apply with LinkedIn</button>
             </div>
-            <div class="desc" style={{ marginTop: '20px' }}>
+            <div className="desc" style={{ marginTop: '20px' }}>
               <strong>Apply with LinkedIn</strong> We've make it quick and easy to enroll in the YEP Mentorship Program! Simply click the button above to connect your LinkedIn account with us. Once connected, you will have the option to review your information
               before sending it off to us to review. After submitting, be on the lookout for an email from a YEP representative with your username and password. 
             </div>

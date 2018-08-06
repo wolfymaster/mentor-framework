@@ -1,7 +1,10 @@
+/* global env */
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 
 import Registration from 'Registration';
+
+const { AUTH0_CLIENT_ID, AUTH0_DOMAIN, SITE_BASE_URL } = env;
 
 export const GuestMenu = () => (
 		<nav id="nav-menu">
@@ -32,39 +35,58 @@ export const GuestMenu = () => (
 					<div className="submenu-item">Mentor Resources</div>
 				</div>
 			</div>
-			<div className="menu-item">
-				<div className="parent">FAQ</div>
-			</div>
-			<div className="menu-item">
-				<div className="parent">Media</div>
-			</div>
-			<div className="menu-item">
-				<div className="parent">
-					<Link to="login">Login</Link>
+			
+			<Link to="faq">
+				<div className="menu-item">
+					<div className="parent">FAQ</div>
 				</div>
-			</div>
+			</Link>
+			
+			<Link to="media">
+				<div className="menu-item">
+					<div className="parent">Media</div>
+				</div>
+			</Link>
+			
+			<Link to="login">
+				<div className="menu-item">
+					<div className="parent">
+						Login
+					</div>
+				</div>
+			</Link>
 		</nav>
 );
 
 
-export const UserMenu = () => (
+export const UserMenu = (props) => (
 		<nav id="nav-menu">
-        	<div className="menu-item">
-    			<div className="parent">
-    				<a href="/dashboard.html">Dashboard</a></div>
-    		</div>
-    		<div className="menu-item">
-    			<div className="parent">
-    				<a href="find-a-mentor.html">Find A Mentor</a>
-    			</div>
-    		</div>
-    		<div className="menu-item">
-    			<div className="parent">
-    			    <a href="management-mentor.html">Management</a>
-    			</div>
-    		</div>
-    		<div className="menu-item">
-    			<div className="parent logout">Logout</div>
-    		</div>
+			<Link to="/account/dashboard">
+	        	<div className="menu-item">
+	    			<div className="parent">
+	    				Dashboard
+					</div>
+	    		</div>
+    		</Link>
+    		<Link to="/find-a-mentor">
+	    		<div className="menu-item">
+	    			<div className="parent">
+	    				Find A Mentor
+	    			</div>
+	    		</div>
+    		</Link>
+    		<Link to="/account/management">
+	    		<div className="menu-item">
+	    			<div className="parent">
+	    			    Management
+	    			</div>
+	    		</div>
+    		</Link>
+    		
+    		<a href={"https://"+AUTH0_DOMAIN+"/v2/logout?client_id="+AUTH0_CLIENT_ID+"&returnTo="+SITE_BASE_URL+"?federated"} onClick={ () => (props.auth.logout()) }>
+	    		<div className="menu-item">
+	    			<div className="parent logout">Logout</div>
+	    		</div>
+    		</a>
 		</nav>
 );

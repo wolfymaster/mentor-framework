@@ -4,7 +4,7 @@ export default class Highlight extends Component {
 
 render() {
     return <section>
-            	<div class="content">
+            	<div className="content">
             		<img src="https://www.eriepa.com/uploads/photos/l/1511280344_280344_kristi.jpg" />
             		<header>
             			<h3>Kristi Bailey</h3>

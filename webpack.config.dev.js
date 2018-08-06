@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -15,7 +17,8 @@ const PATHS = {
 
 module.exports = {
   mode: "development",
-  devtool: "source-map",
+  devtool: "eval",
+  cache: true,
   entry: {
     app: PATHS.app
   },
@@ -25,7 +28,6 @@ module.exports = {
     publicPath: "/"
   },
   devServer: {
-    open: true,
     compress: false,
     historyApiFallback: true,
     contentBase: "dist",
@@ -116,7 +118,15 @@ module.exports = {
       template: path.resolve(__dirname, "src/public", "index.html"),
       //favicon: "src/public/images/fav.png"
     }),
-
+    new webpack.DefinePlugin({
+      "env": JSON.stringify(process.env) || ""
+    }),    
+    /*
+    new webpack.DllReferencePlugin({
+      context: path.join(__dirname),
+      manifest: require("./vendors-manifest.json")
+    }),
+    */
     new ExtractTextPlugin({
       filename: "[name].css",
       disable: false,

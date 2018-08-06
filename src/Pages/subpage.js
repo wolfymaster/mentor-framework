@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import Loading from 'react-loading-animation';
+
 export default class AboutPage extends Component {
     
     API_ENDPOINT = 'https://us-central1-young-erie-professionals.cloudfunctions.net/websiteApi/pages';
@@ -8,6 +10,7 @@ export default class AboutPage extends Component {
         super(props)
     
         this.state = {
+            loading: true,
             page: {
                 title: null,
                 content: null
@@ -21,9 +24,10 @@ export default class AboutPage extends Component {
         .then(res => res.json())
         .then(res => {
             this.setState({
+                loading: false,
                 page: {
                     title: res.article.page_pageTitle,
-                    content: res.article.page_pageContent   
+                    content: res.article.page_pageContent
                 }
             })
         })
@@ -43,9 +47,11 @@ export default class AboutPage extends Component {
 			        
 			        { /* Content */ }
 			        <section id="main" className="wrapper">
-        				<div className="inner">
-        					<div className="content" dangerouslySetInnerHTML= {{__html: this.state.page.content }}></div>
-        				</div>
+			            <Loading isLoading={this.state.loading}>
+            				<div className="inner">
+            					<div className="content" dangerouslySetInnerHTML= {{__html: this.state.page.content }}></div>
+            				</div>
+        				</Loading>
 			        </section>
 
                 </div>
