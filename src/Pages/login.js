@@ -19,23 +19,17 @@ export default class Login extends Component {
           loggingIn: false
         };
     }
-    
-    /*
-    login() {
-        const auth = new AuthLock();
-        auth.show();
-    }
-    */
-    
+
     componentDidMount() {
         if ( !this.state.loggedin && !(/access_token|id_token|error/.test(this.props.location.hash)) ) {
-            this.props.auth.show();
+            //this.props.auth.show();
         } else  {
             this.setState( {
                 loggingIn: true
             })
         }
     }
+
     
     render() {
         return !this.state.loggedin ? (<Loading isLoading={this.state.loggingIn} >
@@ -60,6 +54,7 @@ export default class Login extends Component {
     			                <div><img src="https://0adbdbd4026c44d389258e6d70a241e2.vfs.cloud9.us-east-2.amazonaws.com/images/yepicon.png" width="25" /> &copy;2018</div>
     			            </div>
                         </div>
+                        <button onClick={() => (this.props.auth.show())}>Show</button>
                     </section>
                 </Loading>) : <Redirect to="/account/dashboard" />
     }

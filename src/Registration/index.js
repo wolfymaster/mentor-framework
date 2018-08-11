@@ -55,7 +55,7 @@ export default class Registration extends Component {
   }
 
   closeModal() {
-    this.setState({modalIsOpen: false});
+    this.setState({modalIsOpen: false, step:1});
   }
   
    setApplyPath(path) {
@@ -129,7 +129,7 @@ export default class Registration extends Component {
           </div>
            
   
-          <div id="apply-step-2" style={{ display: (this.state.step === 2) ? 'block' : 'none', justifyContent: 'space-between' }}>
+          <div id="apply-step-2" style={{ display: (this.state.step === 2) ? 'block' : 'none', justifyContent: 'space-between', background:'#FFF', padding:'40px' }}>
             <h2>Welcome! <span>Lets get you enrolled!</span></h2>
             <div>
               <button onClick={ () => this.auth.login("mentee") }>Apply with LinkedIn</button>

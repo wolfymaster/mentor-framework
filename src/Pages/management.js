@@ -4,6 +4,9 @@ import React, {Component} from 'react';
 import Loading from 'react-loading-animation';
 
 export default class Management extends Component {
+    
+    API_ENDPOINT = 'https://us-central1-young-erie-professionals.cloudfunctions.net/websiteApi/users';
+    
     constructor(props) {
         super(props)
     
@@ -11,6 +14,7 @@ export default class Management extends Component {
             loading: true,
             user: null
         }
+        
     }
     
     componentDidMount() {
@@ -23,13 +27,24 @@ export default class Management extends Component {
             console.log(profile, profile.user_metadata, profile.user_appdata);
             
             this.setState( {
-                loading:false,
                 user: profile
             });
+            
+            // Get user data
+            fetch(`${this.API_ENDPOINT}/${profile.email}`)
+            .then(res => res.json())
+            .then(res => {
+                this.setState((prevState, props) => ({
+                    loading: false,
+                    user: Object.assign({}, prevState.user, res.user)
+                }))
+            })             
         });
+        
     }
     
      render() {
+            console.log("state", this.state);
             
             return <div>
             
