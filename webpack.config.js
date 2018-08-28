@@ -129,5 +129,11 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: PATHS.app + "/public/static", to: PATHS.dist } // Copy everything from src/public/static to dist folder
     ])
-  ]
+  ],
+  resolve:{
+    modules: [
+      path.resolve('./src'),
+      path.resolve('./node_modules')
+    ]
+  }
 }
