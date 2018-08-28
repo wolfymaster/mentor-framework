@@ -56,6 +56,6 @@ export default class Login extends Component {
                         </div>
                         <button onClick={() => (this.props.auth.show())}>Show</button>
                     </section>
-                </Loading>) : <Redirect to="/account/dashboard" />
+                </Loading>) : <Redirect to="/" />
     }
 }

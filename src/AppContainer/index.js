@@ -9,6 +9,7 @@ import SubPage from 'Pages/subpage';
 import FindAMentor from 'Pages/find_a_mentor';
 import Login from 'Pages/login';
 import Management from 'Pages/management';
+import Dashboard from 'Pages/dashboard';
 import {AuthLock} from 'Auth/auth';
 
 const auth = new AuthLock();
@@ -26,7 +27,7 @@ export default class AppContainer extends Component {
 							<Route exact path="/find-a-mentor" component={FindAMentor} />
 							<Route exact path="/login" render={ (props) => { return <Login {...props} auth={auth} /> } } />			
 							<Route exact path="/:slug" component={SubPage} />						
-							<Route exact path="/" render={ (props) => { return <Homepage {...props} auth={auth} /> } } />
+							<Route exact path="/" render={ (props) => { return auth.isAuthenticated() ? <Dashboard {...props} auth={auth} /> : <Homepage {...props} auth={auth} /> } } />
 						</Switch>
 
 						{ /* Footer */ } 

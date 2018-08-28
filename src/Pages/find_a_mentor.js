@@ -4,19 +4,26 @@ import MentorSummary from 'Mentor/summary'
 
 export default class FindAMentor extends Component {
  
+ API_ENDPOINT = 'https://us-central1-young-erie-professionals.cloudfunctions.net/websiteApi';
+ 
  constructor(props) {
      super(props);
      
      this.state = {
          filters: {},
-         mentors: [{
-             name: "John",
-             position: "Administrator",
-             image: "",
-             summary: "John is a blah blah blah... Kristi is a blah blah blah...Kristi is a blah blah blah... Kristi is a blah blah blah...Kristi is a blah blah blah... Kristi is a blah blah blah..."
-         }]
+         mentors: []
      }
      
+ }
+ 
+ componentDidMount() {
+   fetch(`${this.API_ENDPOINT}/mentors`)
+   .then(res => res.json())
+   .then(res => {
+     this.setState((prevState, props) => ({
+         mentors: res.mentors
+     }))
+   });
  }
  
  render() {

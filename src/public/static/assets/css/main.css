@@ -2995,6 +2995,7 @@ form#mentor-search input[type="submit"] {
   height:200px;
   border-radius:50%;
   background-size:cover;
+  background-position:center center;
 }
 .mentor-summary .mentor-personal {
   padding:0 10px 0 20px;  

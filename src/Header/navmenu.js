@@ -17,10 +17,10 @@ export const GuestMenu = () => (
 				<div className="parent">For Mentees</div>
 				<div className="submenu">
 					<div className="submenu-item">
-						<Link to="./about-the-YEP-mentor-program">About the YEP Mentor Program</Link>
+						<Link to="about-the-YEP-mentor-program">About the YEP Mentor Program</Link>
 					</div>
 					<div className="submenu-item">
-						<Link to="./curriculum">Curriculum</Link>
+						<Link to="curriculum">Curriculum</Link>
 					</div>
 					<div className="submenu-item">
 						<Link to="find-a-mentor">Find A Mentor</Link>
@@ -30,21 +30,31 @@ export const GuestMenu = () => (
 			<div className="menu-item">
 				<div className="parent">For Mentors</div>
 				<div className="submenu">
-					<div className="submenu-item">Why Become a YEP Mentor?</div>
-					<div className="submenu-item">Mentor Requirements & Expectations</div>
-					<div className="submenu-item">Mentor Resources</div>
+					<div className="submenu-item">
+						<Link to="why-become-a-mentor">Why Become a YEP Mentor?</Link>
+					</div>
+					<div className="submenu-item">
+						<Link to="mentor-requirements-expectations">Mentor Requirements & Expectations</Link>
+					</div>
+					<div className="submenu-item">
+						<Link to="mentor-resources">Mentor Resources</Link>
+					</div>
 				</div>
 			</div>
 			
-			<Link to="faq">
+			<Link to="frequently-asked-questions">
 				<div className="menu-item">
-					<div className="parent">FAQ</div>
+					<div className="parent">
+						FAQ
+					</div>
 				</div>
 			</Link>
 			
 			<Link to="media">
 				<div className="menu-item">
-					<div className="parent">Media</div>
+					<div className="parent">
+						Media
+					</div>
 				</div>
 			</Link>
 			
@@ -61,13 +71,6 @@ export const GuestMenu = () => (
 
 export const UserMenu = (props) => (
 		<nav id="nav-menu">
-			<Link to="/account/dashboard">
-	        	<div className="menu-item">
-	    			<div className="parent">
-	    				Dashboard
-					</div>
-	    		</div>
-    		</Link>
     		<Link to="/find-a-mentor">
 	    		<div className="menu-item">
 	    			<div className="parent">
