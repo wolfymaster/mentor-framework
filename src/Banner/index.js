@@ -7,7 +7,7 @@ export default class Banner extends Component {
  render() {
      return <section id="banner">
     			<div className="inner">
-    				<h1>2018 YEP Mentor Program</h1>
+    				<h1>Mentor Framework</h1>
     				<p>Seeking college Juniors, Seniors, Post-Grads and recent graduates</p>
     				<Registration buttonStyle="button" />
     			</div>

@@ -13,6 +13,7 @@ export const GuestMenu = () => (
 					<Registration showStyle={false} />
 				</div>
 			</div>
+{ /*
 			<div className="menu-item">
 				<div className="parent">For Mentees</div>
 				<div className="submenu">
@@ -41,7 +42,7 @@ export const GuestMenu = () => (
 					</div>
 				</div>
 			</div>
-			
+
 			<Link to="frequently-asked-questions">
 				<div className="menu-item">
 					<div className="parent">
@@ -49,7 +50,7 @@ export const GuestMenu = () => (
 					</div>
 				</div>
 			</Link>
-			
+
 			<Link to="media">
 				<div className="menu-item">
 					<div className="parent">
@@ -57,7 +58,7 @@ export const GuestMenu = () => (
 					</div>
 				</div>
 			</Link>
-			
+
 			<Link to="login">
 				<div className="menu-item">
 					<div className="parent">
@@ -65,6 +66,7 @@ export const GuestMenu = () => (
 					</div>
 				</div>
 			</Link>
+*/ }
 		</nav>
 );
 
