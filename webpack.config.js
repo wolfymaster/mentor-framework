@@ -1,12 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const PATHS = {
     app: path.join(__dirname, 'src'),
@@ -86,6 +86,7 @@ module.exports = {
       template: path.resolve(__dirname, "src/public", "index.html"),
       //favicon: "src/public/images/fav.png"
     }),
+    new Dotenv(),
     new MiniCssExtractPlugin(),
     //new UglifyJSPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(), //Merge chunks
@@ -108,4 +109,4 @@ module.exports = {
       path.resolve('./node_modules')
     ]
   }
-}
+};

@@ -4,7 +4,9 @@ import Modal from 'react-modal';
 
 import {Auth} from 'Auth/auth';
 
-const { AUTH0_CLIENT_ID, AUTH0_DOMAIN, SITE_BASE_URL } = env;
+const AUTH0_CLIENT_ID = process.env.AUTH0_CLIENT_ID,
+      AUTH0_DOMAIN = process.env.AUTH0_DOMAIN,
+      SITE_BASE_URL = process.env.SITE_BASE_URL;
 
 const customStyles = {
   content : {

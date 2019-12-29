@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 
 import Registration from 'Registration';
 
-const { AUTH0_CLIENT_ID, AUTH0_DOMAIN, SITE_BASE_URL } = env;
+const AUTH0_CLIENT_ID = process.env.AUTH0_CLIENT_ID,
+      AUTH0_DOMAIN = process.env.AUTH0_DOMAIN,
+      SITE_BASE_URL = process.env.SITE_BASE_URL;
 
 export const GuestMenu = () => (
 		<nav id="nav-menu">

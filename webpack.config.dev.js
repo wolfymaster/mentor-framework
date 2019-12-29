@@ -1,14 +1,12 @@
-require('dotenv').config();
-
 const path = require('path');
-const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-//const CompressionPlugin = require('compression-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-//const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CleanWebpackPlugin = require("clean-webpack-plugin");
-
+// const webpack = require('webpack');
+// const CompressionPlugin = require('compression-webpack-plugin');
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+// const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 const PATHS = {
     app: path.join(__dirname, 'src'),
@@ -95,9 +93,7 @@ module.exports = {
       template: path.resolve(__dirname, "src/public", "index.html"),
       //favicon: "src/public/images/fav.png"
     }),
-    new webpack.DefinePlugin({
-      "env": JSON.stringify(process.env) || ""
-    }),    
+    new Dotenv(),
     /*
     new webpack.DllReferencePlugin({
       context: path.join(__dirname),
@@ -126,4 +122,4 @@ module.exports = {
       path.resolve('./node_modules')
     ]
   }
-}
+};
