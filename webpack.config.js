@@ -10,7 +10,7 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 const PATHS = {
     app: path.join(__dirname, 'src'),
-    dist: path.join(__dirname, 'dist')
+    dist: path.join(__dirname, 'public')
 };
 
 module.exports = {
