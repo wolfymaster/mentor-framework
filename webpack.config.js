@@ -86,7 +86,7 @@ module.exports = {
       template: path.resolve(__dirname, "src/public", "index.html"),
       //favicon: "src/public/images/fav.png"
     }),
-    new Dotenv(),
+    new Dotenv({systemvars: true}),
     new MiniCssExtractPlugin(),
     //new UglifyJSPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(), //Merge chunks
