@@ -5,11 +5,11 @@ export default class Highlight extends Component {
 render() {
     return <section>
             	<div className="content">
-            		<img src="https://www.eriepa.com/uploads/photos/l/1511280344_280344_kristi.jpg" />
+            		<img src="http://placehold.it/250x300" />
             		<header>
-            			<h3>Kristi Bailey</h3>
+            			<h3>{'{Name]'.toUpperCase()}</h3>
             		</header>
-            		<p>Something, Erie Federal Credit Union</p>
+            		<p>{'{Title}'.toUpperCase()}</p>
             	</div>
             </section>
 }

@@ -78,7 +78,7 @@ export default class Dashboard extends Component {
             					            <h3 style={{ textAlign:"center" }}>Mentee Curriculum</h3>
                                             <ul id="profile-nav" style={{ listStyle:"none", margin:"0", padding:"0" }}>
                                             {
-                                                this.state.lessons.map( lesson => <li>{lesson.lesson_title}</li> )
+                                                this.state.lessons.map( lesson => <li onClick={() => this.setState({lessonIndex: lesson.lesson_order})}>{lesson.lesson_title}</li> )
                                             }
                 					        </ul>            					        
             					        </div>

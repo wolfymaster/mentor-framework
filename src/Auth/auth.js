@@ -2,7 +2,9 @@
 import auth0 from 'auth0-js';
 import Auth0Lock from 'auth0-lock';
 
-const { AUTH0_CLIENT_ID, AUTH0_DOMAIN, SITE_BASE_URL } = env;
+const AUTH0_CLIENT_ID = process.env.AUTH0_CLIENT_ID,
+      AUTH0_DOMAIN = process.env.AUTH0_DOMAIN,
+      SITE_BASE_URL = process.env.SITE_BASE_URL;
 
 export class Auth {
   auth0 = new auth0.WebAuth({

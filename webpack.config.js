@@ -1,16 +1,16 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CompressionPlugin = require('compression-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const CleanWebpackPlugin = require("clean-webpack-plugin")
-
+const path = require('path');
+const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 const PATHS = {
     app: path.join(__dirname, 'src'),
-    dist: path.join(__dirname, 'dist')
+    dist: path.join(__dirname, 'public')
 };
 
 module.exports = {
@@ -32,31 +32,8 @@ module.exports = {
         use: ["babel-loader"]
       },
       {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-
-          // Could also be write as follow:
-          // use: 'css-loader?modules&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'
-          use: [
-            {
-              loader: "css-loader",
-              query: {
-                modules: true,
-                localIdentName: "[name]__[local]___[hash:base64:5]"
-              }
-            },
-            "postcss-loader"
-          ]
-        })
-      },
-      {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: ["css-loader", "sass-loader"]
-        })
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|svg|ttf|eot|woff|woff2)$/,
@@ -109,12 +86,8 @@ module.exports = {
       template: path.resolve(__dirname, "src/public", "index.html"),
       //favicon: "src/public/images/fav.png"
     }),
-
-    new ExtractTextPlugin({
-      filename: "[name].css",
-      disable: false,
-      allChunks: true
-    }),
+    new Dotenv({systemvars: true}),
+    new MiniCssExtractPlugin(),
     //new UglifyJSPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(), //Merge chunks
 
@@ -136,4 +109,4 @@ module.exports = {
       path.resolve('./node_modules')
     ]
   }
-}
+};

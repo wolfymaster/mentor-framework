@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 
 import Registration from 'Registration';
 
-const { AUTH0_CLIENT_ID, AUTH0_DOMAIN, SITE_BASE_URL } = env;
+const AUTH0_CLIENT_ID = process.env.AUTH0_CLIENT_ID,
+      AUTH0_DOMAIN = process.env.AUTH0_DOMAIN,
+      SITE_BASE_URL = process.env.SITE_BASE_URL;
 
 export const GuestMenu = () => (
 		<nav id="nav-menu">
@@ -13,6 +15,7 @@ export const GuestMenu = () => (
 					<Registration showStyle={false} />
 				</div>
 			</div>
+{ /*
 			<div className="menu-item">
 				<div className="parent">For Mentees</div>
 				<div className="submenu">
@@ -41,7 +44,7 @@ export const GuestMenu = () => (
 					</div>
 				</div>
 			</div>
-			
+
 			<Link to="frequently-asked-questions">
 				<div className="menu-item">
 					<div className="parent">
@@ -49,7 +52,7 @@ export const GuestMenu = () => (
 					</div>
 				</div>
 			</Link>
-			
+
 			<Link to="media">
 				<div className="menu-item">
 					<div className="parent">
@@ -57,7 +60,7 @@ export const GuestMenu = () => (
 					</div>
 				</div>
 			</Link>
-			
+
 			<Link to="login">
 				<div className="menu-item">
 					<div className="parent">
@@ -65,6 +68,7 @@ export const GuestMenu = () => (
 					</div>
 				</div>
 			</Link>
+*/ }
 		</nav>
 );
 

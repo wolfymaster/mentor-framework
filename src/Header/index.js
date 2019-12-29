@@ -18,7 +18,7 @@ class Header extends Component {
     	
         return <div id="header" style={headerStyle} >
 			<div id="logo">
-				<Link to="/"><img src="/images/yepicon.png" /></Link>
+				<Link to="/"><img src="http://placehold.it/150x80" /></Link>
 			</div>
 	          { this.props.auth.isAuthenticated() ?
 	        	<UserMenu {...this.props} />

@@ -1,0 +1,8 @@
+<script>
+    var p = new Promise(function(resolve, reject) { 
+        window.opener.postMessage("yolo","https://vfs.cloud9.us-east-2.amazonaws.com/vfs/0adbdbd4026c44d389258e6d70a241e2/preview/googlecloud/frontend/template/index.html"); 
+        resolve(); 
+    }); 
+    
+    p.then(function() { window.close() } );
+</script>
